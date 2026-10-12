@@ -1,4 +1,8 @@
-def all_phones(contacts: dict) -> None:
+def all_phones(contacts: dict) -> list:
+
+    all_users = []
 
     for user, phone in contacts.items():
-        print(f"{user}: {phone}")
+        all_users.append(f"{user}: {phone}")
+
+    return all_users

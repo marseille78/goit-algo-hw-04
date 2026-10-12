@@ -9,15 +9,24 @@ def total_salary(path: str) -> tuple|None:
                 salary = int(user.split(",")[1])
                 total_sum += salary
 
-        return (total_sum, total_sum//len(user_list))
+        try:
+            # return (total_sum, total_sum//len(user_list))
+            return (total_sum, total_sum / len(user_list))
+            # return (total_sum, total_sum / 0)
+        except ZeroDivisionError:
+            print("List of users is empty")
     except FileNotFoundError:
         print("File Not Found")
 
 
 def main():
-    file_path = "./salary_file.txt"
-    total, average = total_salary(file_path)
-    print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")
+    try:
+        file_path = "./salary_file.txt"
+        print(file_path)
+        total, average = total_salary(file_path)
+        print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")
+    except:
+        pass
 
 
 if __name__ == "__main__":

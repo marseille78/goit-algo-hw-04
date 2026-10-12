@@ -25,7 +25,8 @@ def main():
             case "phone":
                 print(show_phone(args, contacts))
             case "all":
-                all_phones(contacts)
+                for user in all_phones(contacts):
+                    print(user)
             case "close" | "exit":
                 print("Goodbye!")
                 break
